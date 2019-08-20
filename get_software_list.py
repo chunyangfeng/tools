@@ -3,7 +3,6 @@
 
 """
 Author: 冯春阳
-Contact: fengchunyang@antiy.cn
 Date: 2018/07/10
 """
 
