@@ -73,7 +73,18 @@ def baidu_api_put(site, token, data):
 
 
 class RequestResolve:
-    """使用request发起http请求"""
+    """使用request发起http请求
+        res.encoding                # 获取当前的编码
+        res.encoding = 'utf-8'      # 设置编码
+        res.text                    # 以encoding解析返回内容。字符串方式的响应体，会自动根据响应头部的字符编码进行解码。
+        res.content                 # 以字节形式（二进制）返回。字节方式的响应体，会自动为你解码 gzip 和 deflate 压缩。
+        res.headers                 # 以字典对象存储服务器响应头，但是这个字典比较特殊，字典键不区分大小写，若键不存在则返回None
+        res.status_code             # 响应状态码
+        res.raw                     # 返回原始响应体，也就是 urllib 的 response 对象，使用 r.raw.read()
+        res.ok                      # 查看r.ok的布尔值便可以知道是否登陆成功
+        res.json()                  # Requests中内置的JSON解码器，以json形式返回
+        res.raise_for_status()      # 失败请求(非200响应)抛出异常
+    """
     def __init__(self):
         self._header = self._get_header()
 
