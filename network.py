@@ -11,6 +11,7 @@ Blog: http://www.fengchunyang.com
 
 重要说明:
 """
+import re
 import requests
 import socket
 from requests.exceptions import RequestException
@@ -136,5 +137,19 @@ class RequestResolve:
         except RequestException:
             return 0, None, "Connect Failed"
         return response.status_code, response, "Success"
+
+
+def is_legal_ip(ipaddr):
+    """判断给定的ip地址是否合法
+
+    Args:
+        ipaddr(str): 待检验的ip地址，需满足点分十进制的表示法
+
+    Returns:
+        is_legal(bool): 是否合法
+    """
+    cmp = re.compile(r'^((25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(25[0-5]|2[0-4]\d|[01]?\d\d?)$')
+    result = cmp.match(ipaddr)
+    return True if result else False
 
 
