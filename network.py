@@ -96,7 +96,9 @@ class RequestResolve:
         Returns:
             header(dict): header字典
         """
-        header = dict()
+        header = {
+            'Content-Type': 'application/json'
+        }
         return header
 
     def _update_header(self, header):
@@ -142,9 +144,6 @@ class RequestResolve:
             response(any): 响应数据
             msg(str): 请求结果
         """
-        # 默认设置post请求为application/json
-        self._update_header({'Content-Type': 'application/json'})
-
         if header is not None:
             self._update_header(header)
         try:
