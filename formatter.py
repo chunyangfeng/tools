@@ -13,7 +13,8 @@ Blog: https://www.fengchunyang.com
 """
 import datetime
 
-from common.params import DATETIME_STANDARD
+
+DATETIME_STANDARD = "%Y-%m-%d %H:%M:%S"
 
 
 def strftime(obj, formatter=DATETIME_STANDARD):
